@@ -19,17 +19,15 @@ C++ project using **Raylib** + **raygui**.
 • Install CMake and a compiler (Visual Studio recommended)
 
 ### Build
+From the project root:
 
-
-    From the project root:
-
-
+```
 cd /path/to/BDe2                                # go to project root
 rm -rf build                                    # remove old build folder
 mkdir build && cd build                         # create and enter build folder
 cmake .. && make                                # generate and build
 ./BDe2                                          # run the application
-
+```
 
 
 ### Notes
