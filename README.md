@@ -1,5 +1,10 @@
 # BDe2
 
+One of my first more or less serious C++ projects.  
+I like it, as well as the **Raylib/raygui** technology, although there is actually not much written about it.  
+I hope it will be useful to someone.
+
+
 C++ project using **Raylib** + **raygui**.
 
 ## Requirements
