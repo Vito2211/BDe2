@@ -5,6 +5,9 @@ One of my first more or less serious C++ projects.
 I like it, as well as the **raycast** technique, although there is actually not much written about it.  
 I hope it will be useful to someone.
 
+# Demo
+![BDe2 demo](docs/BDe2-menu.png)
+![BDe2 demo](docs/BDe2-demo.gif)
 
 
 
