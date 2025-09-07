@@ -2,7 +2,7 @@
 
 
 One of my first more or less serious C++ projects.  
-I like it, as well as the **raycast** technique, although there is actually not much written about it.  
+I like it, as well as the **ray casting** technique, although there is actually not much written about it.  
 I hope it will be useful to someone.
 
 # Demo
