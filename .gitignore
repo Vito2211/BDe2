@@ -1,7 +1,25 @@
-# Ignore the build files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# build directories
 /build/
-/CMakeFiles/
-/CMakeCache.txt
-/*.o
-/*.exe
-/*.out
+/bin/
+/obj/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# IDE/editor files
+.vscode/
+*.swp
+*.swo
+
+# Compiled binaries
+*.exe
+*.out
+*.app
