@@ -200,8 +200,11 @@ void controlForward(PlayerData& p) {
     float newX = p.positionOfPlayerX + cosf(p.directionOfView) * p.speedOfPlayer;
     float newY = p.positionOfPlayerY + sinf(p.directionOfView) * p.speedOfPlayer;
 
-    if (!isCollision(newX, newY)) {
+    if (!isCollision(newX, p.positionOfPlayerY)) {
         p.positionOfPlayerX = newX;
+    }
+
+    if (!isCollision(p.positionOfPlayerX, newY)) {
         p.positionOfPlayerY = newY;
     }
 }
@@ -211,8 +214,11 @@ void controlBackward(PlayerData& p) {
     float newX = p.positionOfPlayerX - cosf(p.directionOfView) * p.speedOfPlayer;
     float newY = p.positionOfPlayerY - sinf(p.directionOfView) * p.speedOfPlayer;
 
-    if (!isCollision(newX, newY)) {
+    if (!isCollision(newX, p.positionOfPlayerY)) {
         p.positionOfPlayerX = newX;
+    }
+
+    if (!isCollision(p.positionOfPlayerX, newY)) {
         p.positionOfPlayerY = newY;
     }
 }
