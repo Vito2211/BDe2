@@ -238,7 +238,7 @@ void controlRight(float viewDirect) {
 float castRay (float angle, float playerX, float playerY) {
     // Cast a ray in the specified angle from the player's position
     // Return the distance to the first wall hit or -1 if no wall is hit
-    float stepSize = 0.1f; // Step size for ray casting
+    float stepSize = 0.01f; // Step size for ray casting
     float distance = 0.0f;
 
     while (distance < 15.0f) { // Limit the maximum distance to check
