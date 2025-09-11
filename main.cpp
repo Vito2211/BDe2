@@ -29,22 +29,23 @@ void castWalls(PlayerData p); // Function to cast rays and draw walls
 void castFloar(PlayerData p); // Function to cast rays and draw the floor
 void castRoof(PlayerData p); // Function to cast rays and draw the roof
 
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // meterials for field:
 // @ = wall
 // . = empty space
-// 
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-
-char field[11][11] = {
+const int MAP_MAX_SIZE = 11; 
+char field[MAP_MAX_SIZE][MAP_MAX_SIZE] = {
     {'@', '@', '@', '@', '@', '@', '@', '@', '@', '@', '@'},
     {'@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '@'},
-    {'@', '.', '@', '@', '@', '.', '@', '@', '.', '.', '@'},
+    {'.', '.', '@', '@', '@', '.', '@', '@', '.', '.', '@'},
     {'@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '@'},
     {'@', '.', '@', '@', '@', '.', '@', '@', '.', '.', '@'},
     {'@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '@'},
-    {'@', '.', '@', '@', '.', '.', '.', '.', '.', '.', '@'},
-    {'@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '@'},
-    {'@', '.', '@', '@', '.', '.', '.', '.', '.', '.', '@'},
+    {'@', '.', '@', '@', '.', '.', '.', '.', '.', '.', '.'},
+    {'@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'},
+    {'@', '.', '@', '@', '.', '.', '.', '.', '.', '.', '.'},
     {'@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '@'},
     {'@', '@', '@', '@', '@', '@', '@', '@', '@', '@', '@'}
 };
@@ -247,7 +248,7 @@ float castRay (float angle, float playerX, float playerY) {
         int gridX = (int)floor(rayX);
         int gridY = (int)floor(rayY);
 
-        if (gridX < 0 || gridX >= 11 || gridY < 0 || gridY >= 11 || field[gridY][gridX] == '@') {
+        if (field[gridY][gridX] == '@') {
             return distance; // Hit a wall or out of bounds
         }
 
