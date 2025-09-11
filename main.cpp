@@ -240,6 +240,7 @@ float castRay (float angle, float playerX, float playerY) {
     // Return the distance to the first wall hit or -1 if no wall is hit
     float stepSize = 0.01f; // Step size for ray casting
     float distance = 0.0f;
+    
 
     while (distance < 15.0f) { // Limit the maximum distance to check
         float rayX = playerX + cosf(angle) * distance;
@@ -270,19 +271,21 @@ void castWalls(PlayerData p) {
 
     for (int x = 0; x < numRays; x++) {
         float angle = startAngle + x * angleStep;
-        float dist = castRay(angle, p.positionOfPlayerX, p.positionOfPlayerY);
+        float distance = castRay(angle, p.positionOfPlayerX, p.positionOfPlayerY);
 
-        if (dist < 0) continue; // if nothing hit — skip
+        if (distance < 0) continue; // if nothing hit — skip
 
+
+        float correctedDistance = distance * cos(angle - player.directionOfView); // Correct the distance to avoid fish-eye effect
 
         int h = GetScreenHeight();
-        int wallHeight = (int)(h / (dist + 0.001f)); // so we don't divide by 0
+        int wallHeight = (int)(h / (correctedDistance + 0.001f)); // so we don't divide by 0
         int wallTop = (h / 2) - (wallHeight / 2);
         int wallBottom = wallTop + wallHeight;
 
         // color based on distance
         float maxDist = 15.0f; // max distance at which the color will be the lightest
-        float intensityFloat = dist / maxDist; // from 0.0 to 1.0
+        float intensityFloat = correctedDistance / maxDist; // from 0.0 to 1.0
         if (intensityFloat > 1.0f) intensityFloat = 1.0f; // limit the maximum
 
         unsigned char intensity = (unsigned char)((intensityFloat * 255) + 70);
